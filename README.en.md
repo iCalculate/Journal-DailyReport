@@ -101,6 +101,27 @@ python test_system.py
 | ENABLE_EMAIL_SENDING | Enable email sending (true/false) |
 | OUTPUT_FORMAT | Output format (markdown/html/json/all) |
 
+### .env File Setup
+
+You can create a `.env` file in the project root to store your environment variables. Example:
+
+```
+DEEPSEEK_API_KEY=your_deepseek_api_key_here
+DEEPSEEK_MODEL=deepseek-chat
+SMTP_SERVER=smtp.example.com
+SMTP_PORT=587
+EMAIL_USERNAME=your_email@example.com
+EMAIL_PASSWORD=your_email_password
+EMAIL_RECIPIENTS=recipient1@example.com,recipient2@example.com
+EMAIL_BCC=bcc@example.com
+ENABLE_EMAIL_SENDING=true
+OUTPUT_FORMAT=markdown
+```
+
+**Note:**
+- Do NOT commit your `.env` file to version control.
+- Only share `env_example.txt` or a template file without sensitive information.
+
 ---
 
 ## Output & Report Format
