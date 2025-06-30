@@ -1,0 +1,24 @@
+# DeepSeek API 配置
+DEEPSEEK_API_KEY=sk-d9308aa30c734a64bc8ebc5a67b35f17
+DEEPSEEK_MODEL=deepseek-chat
+DEEPSEEK_MAX_TOKENS=1000
+DEEPSEEK_TEMPERATURE=0.7
+
+# 邮件配置（本地测试时禁用）
+SMTP_SERVER=smtp.office365.com
+SMTP_PORT=587
+EMAIL_USERNAME=your_email@example.com
+EMAIL_PASSWORD=your_email_password_here
+EMAIL_RECIPIENTS=recipient1@example.com,recipient2@example.com
+EMAIL_BCC=bcc1@example.com,bcc2@example.com
+
+# 系统配置
+ENABLE_EMAIL_SENDING=false
+ENABLE_LOCAL_TEST=true
+OUTPUT_FORMAT=markdown
+
+# 可选：使用企业邮箱
+# SMTP_SERVER=smtp.exmail.qq.com
+# SMTP_PORT=465
+# EMAIL_USERNAME=your_company_email@company.com
+# EMAIL_PASSWORD=your_company_email_password 

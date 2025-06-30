@@ -1,0 +1,41 @@
+# {{ report.title }} - {{ report.date.strftime('%Y/%m/%d') }}
+
+## 📊 今日概览
+- **总文章数**: {{ report.total_articles }} 篇
+- **覆盖期刊**: {{ report.journals_covered|length }} 个
+
+## 🔬 按期刊分类
+
+{% for journal in report.journals_covered %}
+### {{ journal }}
+{% set journal_articles = report.get_articles_by_journal(journal) %}
+{% for article in journal_articles %}
+#### {{ article.title }}
+- **期刊**: {{ article.journal }}
+- **作者**: {{ article.authors|join(', ') if article.authors else '作者信息未获取' }}
+{% if article.corresponding_author %}
+- **通讯作者**: {{ article.corresponding_author }}
+{% endif %}
+{% if article.author_affiliations %}
+- **作者单位**: {{ article.author_affiliations|join('; ') }}
+{% endif %}
+- **文章类型**: {{ article.article_type.value }}
+- **发布日期**: {{ article.publish_date.strftime('%Y-%m-%d') }}
+- **原文链接**: [{{ article.url }}]({{ article.url }})
+
+**摘要**: {{ article.summary or '摘要生成失败' }}
+
+{% if article.key_points and article.key_points[0] != "关键点提取失败" %}
+**关键贡献点**:
+{% for point in article.key_points %}
+- {{ point }}
+{% endfor %}
+{% endif %}
+
+---
+{% endfor %}
+{% endfor %}
+
+---
+*本报告由 Nature 系列期刊 AI 日报系统自动生成*
+*生成时间: {{ datetime.now().strftime('%Y-%m-%d %H:%M:%S') }}*
